@@ -1,3 +1,4 @@
 import Sidebar from "./Sidebar.jsx";
+import Header from "./Header.jsx";
 
-export {Sidebar}
+export {Sidebar, Header}
