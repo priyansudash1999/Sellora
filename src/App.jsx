@@ -15,7 +15,10 @@ const App = () => {
           onPageChange={setCurrPage}
         />
         <div className="flex-1 flex flex-col overflow-hidden">
-          <Header />
+          <Header
+            sidebaClosed={sidebarShow}
+            onToggleSidebar={() => setSidebarShow(!sidebarShow)}
+          />
         </div>
       </div>
     </div>
