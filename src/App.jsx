@@ -1,4 +1,4 @@
-import { Header, Sidebar } from "./components/index.js";
+import { Header, Sidebar, Dashboard } from "./components/index.js";
 import React, { useState } from "react";
 
 const App = () => {
@@ -19,6 +19,11 @@ const App = () => {
             sidebaClosed={sidebarShow}
             onToggleSidebar={() => setSidebarShow(!sidebarShow)}
           />
+          <main className="flex-1 overflow-y-auto bg-transparent">
+            <div className="p-6 space-y-6">
+              {currPage === "dashboard" && <Dashboard />}
+            </div>
+          </main>
         </div>
       </div>
     </div>
