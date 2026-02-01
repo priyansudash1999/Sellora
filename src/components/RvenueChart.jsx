@@ -9,18 +9,18 @@ import {
   Tooltip,
 } from "recharts";
 const data = [
-  { month: "January", revenue: 120000, expenses: 85000 },
-  { month: "February", revenue: 135000, expenses: 90000 },
-  { month: "March", revenue: 150000, expenses: 95000 },
-  { month: "April", revenue: 140000, expenses: 92000 },
+  { month: "Jan", revenue: 120000, expenses: 85000 },
+  { month: "Feb", revenue: 135000, expenses: 90000 },
+  { month: "Mar", revenue: 150000, expenses: 95000 },
+  { month: "Apr", revenue: 140000, expenses: 92000 },
   { month: "May", revenue: 165000, expenses: 100000 },
   { month: "June", revenue: 180000, expenses: 110000 },
   { month: "July", revenue: 175000, expenses: 108000 },
-  { month: "August", revenue: 190000, expenses: 115000 },
-  { month: "September", revenue: 200000, expenses: 120000 },
-  { month: "October", revenue: 220000, expenses: 130000 },
-  { month: "November", revenue: 240000, expenses: 140000 },
-  { month: "December", revenue: 260000, expenses: 150000 },
+  { month: "Aug", revenue: 190000, expenses: 115000 },
+  { month: "Sept", revenue: 200000, expenses: 120000 },
+  { month: "Oct", revenue: 220000, expenses: 130000 },
+  { month: "Nov", revenue: 240000, expenses: 140000 },
+  { month: "Dec", revenue: 260000, expenses: 150000 },
 ];
 
 const RvenueChart = () => {
@@ -28,7 +28,7 @@ const RvenueChart = () => {
     <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-bl-xl border border-slate-200/50 dark:border-slate-700/50 p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-xl font-bold etxt-slate-800 dark:text-white">
+          <h3 className="text-xl font-bold text-slate-800 dark:text-white">
             Revenue Chart
           </h3>
           <p className="text-sm text-slate-500 dark:text-slate-400">
@@ -75,7 +75,7 @@ const RvenueChart = () => {
               fontSize={12}
               tickLine={false}
               axisLine={false}
-              tickFormatter={(val) => `$${val / 1000}k`}
+              tickFormatter={(val) => `₹${val / 1000}k`}
             />
             <Tooltip
               contentStyle={{
@@ -84,7 +84,7 @@ const RvenueChart = () => {
                 borderRadius: "12px",
                 boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
               }}
-              formatter={(val) => [`$${val.toLocaleString()}`]}
+              formatter={(val) => [`₹${val.toLocaleString()}`]}
             />
             <Bar
               dataKey="revenue"
