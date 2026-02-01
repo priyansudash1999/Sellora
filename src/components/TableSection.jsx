@@ -7,7 +7,7 @@ const recentOrders = [
     customer: "Rahul Sharma",
     product: "Wireless Headphones",
     amount: 2999,
-    status: "Delivered",
+    status: "completed",
     date: "2026-01-28",
   },
   {
@@ -15,7 +15,7 @@ const recentOrders = [
     customer: "Ananya Singh",
     product: "Smart Watch",
     amount: 5499,
-    status: "Pending",
+    status: "pending",
     date: "2026-01-27",
   },
   {
@@ -23,7 +23,7 @@ const recentOrders = [
     customer: "Amit Patel",
     product: "Bluetooth Speaker",
     amount: 1999,
-    status: "Cancelled",
+    status: "cancelled",
     date: "2026-01-26",
   },
   {
@@ -31,7 +31,7 @@ const recentOrders = [
     customer: "Sneha Verma",
     product: "Laptop Backpack",
     amount: 1499,
-    status: "Delivered",
+    status: "completed",
     date: "2026-01-26",
   },
   {
@@ -39,7 +39,7 @@ const recentOrders = [
     customer: "Rohit Kumar",
     product: "Mechanical Keyboard",
     amount: 4299,
-    status: "Processing",
+    status: "pending",
     date: "2026-01-25",
   },
   {
@@ -47,7 +47,7 @@ const recentOrders = [
     customer: "Priya Nair",
     product: "USB-C Hub",
     amount: 1799,
-    status: "Delivered",
+    status: "completed",
     date: "2026-01-24",
   },
   {
@@ -55,7 +55,7 @@ const recentOrders = [
     customer: "Karan Malhotra",
     product: "Gaming Mouse",
     amount: 2499,
-    status: "Pending",
+    status: "pending",
     date: "2026-01-24",
   },
   {
@@ -63,7 +63,7 @@ const recentOrders = [
     customer: "Neha Gupta",
     product: "Noise Cancelling Earbuds",
     amount: 6999,
-    status: "Delivered",
+    status: "completed",
     date: "2026-01-23",
   },
 ];
@@ -177,11 +177,8 @@ const TableSection = () => {
             </thead>
             <tbody>
               {recentOrders.map((ord, ind) => (
-                <tr
-                  key={ind}
-                  className="border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors"
-                >
-                  <td className="p-4">
+                <tr className="border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+                  <td className="p-4" key={ind}>
                     <span className="text-sm font-medium text-slate-800 dark:text-white">
                       {ord.id}
                     </span>
@@ -197,20 +194,20 @@ const TableSection = () => {
                     </span>
                   </td>
                   <td className="p-4">
-                    <span className="text-sm font-medium text-slate-800 dark:text-white">
+                    <span
+                      className={`font-medium text-slate-800 dark:text-white text-xs px-3 py-1 rounded-full ${getStatusColor(ord.status)}`}
+                    >
                       {ord.status}
                     </span>
                   </td>
                   <td className="p-4">
-                    <span
-                      className={`font-medium text-slate-800 dark:text-white text-xs px-3 py-1 rounded-full`}
-                    >
+                    <span className="text-sm font-medium text-slate-800 dark:text-white">
                       {new Date().toLocaleDateString()}
                     </span>
                   </td>
                   <td className="p-4">
                     <span className="text-sm font-medium text-slate-800 dark:text-white">
-                      <MoreHorizontal className="w-4 h-4" />
+                      <MoreHorizontal className="w-4 h-4 cursor-pointer" />
                     </span>
                   </td>
                 </tr>
