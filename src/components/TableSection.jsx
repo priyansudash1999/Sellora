@@ -1,4 +1,4 @@
-import { MoreHorizontal } from "lucide-react";
+import { MoreHorizontal, TrendingDown, TrendingUp } from "lucide-react";
 import React from "react";
 
 const recentOrders = [
@@ -214,6 +214,56 @@ const TableSection = () => {
               ))}
             </tbody>
           </table>
+        </div>
+      </div>
+
+      {/* Top Products */}
+      <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden">
+        <div className="p-6 border-b border-slate-200/50 dark:border-slate-700/50">
+          <div className="flex items-center justify-between">
+            <div className="text-lg font-bold text-slate-800 dark:text-white">
+              <h3 className="text-lg font-bold text-slate-800 dark:text-white ">
+                Top Products
+              </h3>
+            </div>
+            <p className="text-sm text-slate-500 dark:etxt-slate-400">
+              Best Performing Products
+            </p>
+          </div>
+          <button className="text-blue-600 hover:text-blue-900 text-sm font-medium">
+            View All
+          </button>
+        </div>
+
+        {/* Dynamic Data */}
+        <div className="p-6 space-y-4">
+          {topProducts.map((prod, ind) => (
+            <div className="flex items-center justify-between p-4 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800/50 transform-colors">
+              <div key={ind} className="flex-1">
+                <h4 className="text-sm font-semibold text-slate-800 dark:text-white">
+                  {prod.name}
+                </h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400">
+                  {prod.sales} Units
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-semibold text-slate-800 dark:text-white">
+                  {prod.revenue}
+                </p>
+                <div className="flex items-center space-x-1">
+                  {prod.trend === "up" ? (
+                    <TrendingUp className="w-3 h-3 text-emerald-500" />
+                  ) : (
+                    <TrendingDown className="w-3 h-3 text-red-500" />
+                  )}
+                  <span className="text-black dark:text-white text-xs">
+                    {prod.trend}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
