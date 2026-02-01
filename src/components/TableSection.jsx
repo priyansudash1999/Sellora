@@ -257,8 +257,10 @@ const TableSection = () => {
                   ) : (
                     <TrendingDown className="w-3 h-3 text-red-500" />
                   )}
-                  <span className="text-black dark:text-white text-xs">
-                    {prod.trend}
+                  <span
+                    className={`${prod.trend === "up" ? "text-green-400" : "text-red-500"} text-xs`}
+                  >
+                    {prod.change}
                   </span>
                 </div>
               </div>
