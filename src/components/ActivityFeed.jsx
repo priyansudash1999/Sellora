@@ -8,7 +8,8 @@ import {
   TrendingUp,
   MessageSquare,
 } from "lucide-react";
-import React, { act } from "react";
+import React from "react";
+
 const activities = [
   {
     id: 1,
@@ -85,37 +86,48 @@ const activities = [
 const ActivityFeed = () => {
   return (
     <div className="bg-white dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-slate-200/50 dark:border-slate-700/50">
-      <div className="p-6 border-6 border-slate-200/50 dark:border-slate-700/50">
-        <div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-            Activity Feed
-          </h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            Recent System Activities
-          </p>
+      {/* Header */}
+      <div className="p-4 sm:p-6 border-b border-slate-200/50 dark:border-slate-700/50">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Activity Feed
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+              Recent System Activities
+            </p>
+          </div>
+
+          <button className="self-start sm:self-auto text-blue-500 hover:text-blue-700 text-sm font-medium">
+            View All
+          </button>
         </div>
-        <button className="text-blue-500 hover:text-blue-800 text-sm font-medium">
-          View All
-        </button>
       </div>
-      <div className="p-6">
-        <div className="space-y-4">
-          {activities.map((act, ind) => (
+
+      {/* Activity List */}
+      <div className="p-4 sm:p-6">
+        <div className="space-y-3 sm:space-y-4">
+          {activities.map((act) => (
             <div
-              key={ind}
-              className="flex items-start space-x-4 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+              key={act.id}
+              className="flex gap-3 sm:gap-4 items-start p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
             >
-              <div className={`p-2 rounded-lg ${act.bgColor}`}>
+              {/* Icon */}
+              <div className={`p-2 rounded-lg shrink-0 ${act.bgColor}`}>
                 <act.icon className={`w-4 h-4 ${act.color}`} />
               </div>
+
+              {/* Content */}
               <div className="flex-1 min-w-0">
                 <h4 className="text-sm font-semibold text-slate-800 dark:text-white">
                   {act.title}
                 </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 truncate">
+
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 line-clamp-2 sm:line-clamp-none">
                   {act.description}
                 </p>
-                <div className="flex items-center-safe space-x-1 mt-1">
+
+                <div className="flex items-center gap-1 mt-1">
                   <Clock className="w-3 h-3 text-slate-400" />
                   <span className="text-xs text-slate-500 dark:text-slate-400">
                     {act.time}
