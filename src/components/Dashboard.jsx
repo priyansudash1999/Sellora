@@ -2,6 +2,7 @@ import React from "react";
 import StaticGrid from "./StaticGrid.jsx";
 import ChatSection from "./ChatSection.jsx";
 import TableSection from "./TableSection.jsx";
+import ActivityFeed from "./ActivityFeed.jsx";
 
 const Dashboard = () => {
   return (
@@ -13,6 +14,9 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
         <div className="xl:col-span-2">
           <TableSection />
+        </div>
+        <div>
+          <ActivityFeed />
         </div>
       </div>
     </div>
